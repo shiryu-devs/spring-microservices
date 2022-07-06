@@ -5,10 +5,9 @@ spring:
     config:
       server:
         git:
-          default-label: eureka
+          default-label: multiples-instances
           uri: https://github.com/shiryu-devs/spring-microservices
           search-paths: config-data
   application:
     name: config-service
-          
            

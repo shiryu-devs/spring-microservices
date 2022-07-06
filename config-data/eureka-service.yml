@@ -1,0 +1,6 @@
+server:
+  port: 8054
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false

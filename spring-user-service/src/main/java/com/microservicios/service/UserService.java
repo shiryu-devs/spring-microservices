@@ -1,8 +1,5 @@
 package com.microservicios.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +43,12 @@ public class UserService {
 	}
 	
 	public List<Car> getCars(int userId){
-		List<Car> cars=restTemplate.getForObject("http://localhost:8051/cars/users/"+userId,List.class);
+		List<Car> cars=restTemplate.getForObject("http://car-service/cars/users/"+userId,List.class);
 		return cars;
 	}
 	
 	public List<Bike> getBikes(int userId){
-		List<Bike> bikes=restTemplate.getForObject("http://localhost:8052/bikes/users/"+userId,List.class);
+		List<Bike> bikes=restTemplate.getForObject("http://bike-service/bikes/users/"+userId,List.class);
 		return bikes;
 	}
 	

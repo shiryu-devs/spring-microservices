@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.microservicios.model.Bike;
 
-@FeignClient(name = "bike-service",url = "http://localhost:8052")
+@FeignClient(name = "bike-service")
 public interface BikeFeignClient {
 	@PostMapping("/bikes")
 	Bike save(@RequestBody Bike bike);

@@ -1,5 +1,3 @@
-server:
-  port: 8052
 spring:
   application:
     name: bike-service
@@ -13,4 +11,4 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8083
+      uri: http://localhost:8053

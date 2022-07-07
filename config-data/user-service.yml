@@ -12,7 +12,7 @@ eureka:
 resilience4j.circuitbreaker:
     instances:
         carsCB:
-	    registerHealthIndicator: true
+	          registerHealthIndicator: true
             slidingWindowSize: 10
             permittedNumberOfCallsInHalfOpenState: 3
             slidingWindowType: TIME_BASED
@@ -29,7 +29,7 @@ resilience4j.circuitbreaker:
             waitDurationInOpenState: 5s
             failureRateThreshold: 50
             eventConsumerBufferSize: 10
-	allCB:
+	      allCB:
             registerHealthIndicator: true
             slidingWindowSize: 10
             permittedNumberOfCallsInHalfOpenState: 3

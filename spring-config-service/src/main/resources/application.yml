@@ -5,9 +5,8 @@ spring:
     config:
       server:
         git:
-          default-label: zipkin-sleuth
+          default-label: keycloak
           uri: https://github.com/shiryu-devs/spring-microservices
           search-paths: config-data
   application:
-    name: config-service
-           
+    name: config-service        

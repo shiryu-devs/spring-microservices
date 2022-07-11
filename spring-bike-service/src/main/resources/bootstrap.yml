@@ -11,4 +11,9 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8053
+      uri: http://localhost:8053  
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8056/auth/realms/tutorial-realm

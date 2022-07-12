@@ -10,34 +10,34 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 resilience4j.circuitbreaker:
-    instances:
-        carsCB:
-	    registerHealthIndicator: true
-            slidingWindowSize: 10
-            permittedNumberOfCallsInHalfOpenState: 3
-            slidingWindowType: TIME_BASED
-            minimumNumberOfCalls: 4
-            waitDurationInOpenState: 5s
-            failureRateThreshold: 50
-            eventConsumerBufferSize: 10
-        bikesCB:
-            registerHealthIndicator: true
-            slidingWindowSize: 10
-            permittedNumberOfCallsInHalfOpenState: 3
-            slidingWindowType: TIME_BASED
-            minimumNumberOfCalls: 4
-            waitDurationInOpenState: 5s
-            failureRateThreshold: 50
-            eventConsumerBufferSize: 10
-	allCB:
-            registerHealthIndicator: true
-            slidingWindowSize: 10
-            permittedNumberOfCallsInHalfOpenState: 3
-            slidingWindowType: TIME_BASED
-            minimumNumberOfCalls: 4
-            waitDurationInOpenState: 5s
-            failureRateThreshold: 50
-            eventConsumerBufferSize: 10            
+  instances:
+    carsCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+    bikesCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+    allCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 4
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
 spring:
   application:
-    zipkin: http//localhost:9411            
+    zipkin: http//localhost:9411          

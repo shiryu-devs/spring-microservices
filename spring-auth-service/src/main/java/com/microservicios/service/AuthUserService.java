@@ -26,7 +26,7 @@ public class AuthUserService {
 			return null;
 		}
 		String password=passwordEncoder.encode(authUserDto.getPassword());
-		AuthUser authUser=AuthUser.builder().username(authUserDto.getUsername())
+		AuthUser authUser=AuthUser.builder().userName(authUserDto.getUsername())
 				.password(password)
 				.build();
 		

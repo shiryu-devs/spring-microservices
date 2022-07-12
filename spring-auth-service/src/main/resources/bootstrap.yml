@@ -13,4 +13,4 @@ spring:
       enabled: true
       uri: http://localhost:8053
 jwt:
-  secret:secret
+  secret: secret

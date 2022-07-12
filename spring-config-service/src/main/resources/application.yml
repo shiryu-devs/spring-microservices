@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: zipkin-sleuth
+          default-label: auth-jwt
           uri: https://github.com/shiryu-devs/spring-microservices
           search-paths: config-data
   application:

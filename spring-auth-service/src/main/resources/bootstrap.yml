@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    password: desarrollo
+    url: jdbc:mysql://localhost:3306/bd_spring?zeroDateTimeBehavior=convertToNull
+    username: axartel
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8053
+jwt:
+  secret:secret

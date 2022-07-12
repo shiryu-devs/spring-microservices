@@ -9,5 +9,5 @@ import com.microservicios.entity.AuthUser;
 @Repository
 public interface AuthUserRepository extends JpaRepository<AuthUser, Integer>{
 
-	public Optional<AuthUser> findByUserName(String userName);
+	public Optional<AuthUser> findByUsername(String username);
 }

@@ -21,12 +21,12 @@ public class AuthUserService {
 	JwtProvider jwtProvider;
 	
 	public AuthUser save(AuthUserDto authUserDto) {
-		Optional<AuthUser> user=this.authUserRepository.findByUserName(authUserDto.getUsername());
+		Optional<AuthUser> user=this.authUserRepository.findByUsername(authUserDto.getUsername());
 		if (user.isPresent()) {
 			return null;
 		}
 		String password=passwordEncoder.encode(authUserDto.getPassword());
-		AuthUser authUser=AuthUser.builder().userName(authUserDto.getUsername())
+		AuthUser authUser=AuthUser.builder().username(authUserDto.getUsername())
 				.password(password)
 				.build();
 		
@@ -34,8 +34,8 @@ public class AuthUserService {
 	}
 	
 	public TokenDto login(AuthUserDto authUserDto) {
-		Optional<AuthUser> user=this.authUserRepository.findByUserName(authUserDto.getUsername());
-		if (user.isPresent()) {
+		Optional<AuthUser> user=this.authUserRepository.findByUsername(authUserDto.getUsername());
+		if (!user.isPresent()) {
 			return null;
 		}
 		if (this.passwordEncoder.matches(authUserDto.getPassword(), user.get().getPassword())) {
@@ -49,7 +49,7 @@ public class AuthUserService {
 			return null;
 		}
 		String username=this.jwtProvider.getUserNameFromToken(token);
-		Optional<AuthUser> user=this.authUserRepository.findByUserName(username);
+		Optional<AuthUser> user=this.authUserRepository.findByUsername(username);
 		if (!user.isPresent()) {
 			return null;
 		}

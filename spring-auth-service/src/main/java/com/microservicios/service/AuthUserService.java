@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 import com.microservicios.dto.AuthUserDto;
+import com.microservicios.dto.RequestDto;
 import com.microservicios.dto.TokenDto;
 import com.microservicios.entity.AuthUser;
 import com.microservicios.repository.AuthUserRepository;
@@ -44,8 +45,8 @@ public class AuthUserService {
 		return null;
 	}
 	
-	public TokenDto validate(String token) {
-		if (!this.jwtProvider.validate(token)) {
+	public TokenDto validate(String token, RequestDto requestDto) {
+		if (!this.jwtProvider.validate(token,requestDto)) {
 			return null;
 		}
 		String username=this.jwtProvider.getUserNameFromToken(token);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservicios.dto.AuthUserDto;
+import com.microservicios.dto.RequestDto;
 import com.microservicios.dto.TokenDto;
 import com.microservicios.entity.AuthUser;
 import com.microservicios.service.AuthUserService;
@@ -31,9 +32,9 @@ public class AuthUserController {
 		return ResponseEntity.ok(tokenDto);
 	}
 	
-	@GetMapping("/validate")
-	public ResponseEntity<TokenDto> validate(@RequestParam String token){
-		TokenDto tokenDto=this.authUserService.validate(token);
+	@PostMapping("/validate")
+	public ResponseEntity<TokenDto> validate(@RequestParam String token, @RequestBody RequestDto requestDto){
+		TokenDto tokenDto=this.authUserService.validate(token,requestDto);
 		if (tokenDto==null) {
 			return ResponseEntity.badRequest().build();
 		}

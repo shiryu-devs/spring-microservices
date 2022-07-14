@@ -24,6 +24,11 @@ public class RouteValidator {
 	}
 	
 	public boolean isAdminPath(RequestDto dto) {
+		/*System.out.println(dto.toString());
+		paths.stream().forEach(p-> {
+			System.out.println(p.getUri()); 
+			System.out.println(p.getMethod());
+			});*/
 		return paths.stream().anyMatch(p -> Pattern.matches(p.getUri(), dto.getUri()) && p.getMethod().equals(dto.getMethod()));
 	}
 }

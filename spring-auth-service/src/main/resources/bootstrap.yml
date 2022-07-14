@@ -14,14 +14,3 @@ spring:
       uri: http://localhost:8053
 jwt:
   secret: secret
-admin-paths:
-  paths:
-    -
-      uri: "/users"
-      method: "POST"
-    -
-      uri: "/users/(1)[1-9]+[0-9]*/cars/(1)"
-      method: "POST"
-    -
-      uri: "/users/(1)[1-9]+[0-9]*/bikes/(1)"
-      method: "POST"

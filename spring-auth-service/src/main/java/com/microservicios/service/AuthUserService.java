@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 import com.microservicios.dto.AuthUserDto;
+import com.microservicios.dto.NewUserDto;
 import com.microservicios.dto.RequestDto;
 import com.microservicios.dto.TokenDto;
 import com.microservicios.entity.AuthUser;
@@ -21,14 +22,15 @@ public class AuthUserService {
 	@Autowired
 	JwtProvider jwtProvider;
 	
-	public AuthUser save(AuthUserDto authUserDto) {
-		Optional<AuthUser> user=this.authUserRepository.findByUsername(authUserDto.getUsername());
+	public AuthUser save(NewUserDto newUserDto) {
+		Optional<AuthUser> user=this.authUserRepository.findByUsername(newUserDto.getUsername());
 		if (user.isPresent()) {
 			return null;
 		}
-		String password=passwordEncoder.encode(authUserDto.getPassword());
-		AuthUser authUser=AuthUser.builder().username(authUserDto.getUsername())
+		String password=passwordEncoder.encode(newUserDto.getPassword());
+		AuthUser authUser=AuthUser.builder().username(newUserDto.getUsername())
 				.password(password)
+				.roles(newUserDto.getRole())
 				.build();
 		
 		return this.authUserRepository.save(authUser);

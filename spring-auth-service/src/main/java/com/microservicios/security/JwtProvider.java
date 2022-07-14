@@ -63,6 +63,7 @@ public class JwtProvider {
 	}
 	
 	private boolean isAdmin(String token) {
+		//System.out.println("Role token: "+Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().get("role"));
 		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().get("role").equals("admin");
 	}
 	
